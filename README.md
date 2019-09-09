@@ -16,3 +16,8 @@ Navigate to `http://localhost:4200/`. The app will automatically reload if you c
 
 
 ![](https://s3-us-west-2.amazonaws.com/angular-templates/tutorials/firebase-authentication-with-angular/firebase-tutorial-login-screenshot.png)
+
+
+## Configurate the notification service worker
+
+Go to `src/firebase-messaging-sw.js` and replace the SENDER-ID.
