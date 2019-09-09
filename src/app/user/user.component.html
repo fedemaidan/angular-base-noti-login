@@ -3,7 +3,8 @@
     <a (click)="logout()" class="navbar-text navbar-right navbar-link">Logout</a>
   </div>
 </nav>
-<h1 class="header">Logged User Page</h1>
+<h1 class="header">Logged User Page 
+  {{ message | async | json }}</h1>
 <div class="row">
   <div class="col-md-4 col-md-offset-4">
     <div class="card" style="width: 20rem;">
@@ -20,7 +21,7 @@
             <input type="text" formControlName="name" class="form-control" required>
           </div>
         </form>
-        <a (click)="save(profileForm.value)" class="btn btn-primary">Save</a>
+        <a (click)="save(profileForm.value)" class="btn btn-primary">Save </a>
       </div>
     </div>
   </div>

@@ -5,6 +5,8 @@ import { rootRouterConfig } from './app.routes';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireMessagingModule } from '@angular/fire/messaging';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from '../environments/environment';
 import { LoginComponent } from './login/login.component';
 import { UserComponent } from './user/user.component';
@@ -14,7 +16,7 @@ import { AuthGuard } from './core/auth.guard';
 import { AuthService } from './core/auth.service';
 import { UserService } from './core/user.service';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { MessagingService } from './shared/messaging.service';
 import { AppComponent } from './app.component';
 
 @NgModule({
@@ -30,9 +32,11 @@ import { AppComponent } from './app.component';
     RouterModule.forRoot(rootRouterConfig, { useHash: false }),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
-    AngularFireAuthModule // imports firebase/auth, only needed for auth features
+    AngularFireAuthModule, // imports firebase/auth, only needed for auth features
+    AngularFireDatabaseModule,
+    AngularFireMessagingModule
   ],
-  providers: [AuthService, UserService, UserResolver, AuthGuard],
+  providers: [AuthService, UserService, UserResolver, AuthGuard, MessagingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

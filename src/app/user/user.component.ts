@@ -6,6 +6,7 @@ import { Location } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FirebaseUserModel } from '../core/user.model';
 
+import { MessagingService } from "../shared/messaging.service";
 @Component({
   selector: 'page-user',
   templateUrl: 'user.component.html',
@@ -15,13 +16,14 @@ export class UserComponent implements OnInit{
 
   user: FirebaseUserModel = new FirebaseUserModel();
   profileForm: FormGroup;
-
+  message;
   constructor(
     public userService: UserService,
     public authService: AuthService,
     private route: ActivatedRoute,
     private location : Location,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private messagingService: MessagingService
   ) {
 
   }
@@ -32,6 +34,10 @@ export class UserComponent implements OnInit{
       if (data) {
         this.user = data;
         this.createForm(this.user.name);
+        const userId = 'user001';
+        this.messagingService.requestPermission(userId)
+        this.messagingService.receiveMessage()
+        this.message = this.messagingService.currentMessage
       }
     })
   }
