@@ -6,12 +6,12 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: "AIzaSyCJpPzHwseNT5Y1mu-GEqfI7OlCfSJoTl4",
-    authDomain: "notiml.firebaseapp.com",
-    databaseURL: "https://notiml.firebaseio.com",
-    projectId: "notiml",
-    storageBucket: "gs://notiml.appspot.com/",
-    messagingSenderId: "232289099085",
-    appId: "1:232289099085:web:5e21209d54b6bd74"
+    apiKey: "",
+    authDomain: "",
+    databaseURL: "",
+    projectId: "",
+    storageBucket: "",
+    messagingSenderId: "",
+    appId: ""
   }
 };
