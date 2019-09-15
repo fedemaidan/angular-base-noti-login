@@ -48,6 +48,7 @@ export class MessagingService {
     this.angularFireMessaging.requestToken.subscribe(
       (token) => {
         console.log(token);
+        this.currentMessage.next(token);
         this.updateToken(userId, token);
       },
       (err) => {
